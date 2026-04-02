@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AuthSessionProvider from "@/components/providers/SessionProvider";
+import ToastProvider from "@/components/providers/ToastProvider";
 
 export default function SiteLayout({
   children,
@@ -9,6 +10,7 @@ export default function SiteLayout({
 }) {
   return (
     <AuthSessionProvider>
+      <ToastProvider />
       <Header />
       {children}
       <Footer />

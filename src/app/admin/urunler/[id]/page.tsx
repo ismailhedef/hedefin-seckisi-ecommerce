@@ -30,6 +30,21 @@ export default async function EditProductPage({ params }: Props) {
         title="Ürün Düzenle"
         description="Mevcut ürün bilgilerini güncelleyin."
       />
+       <ProductForm
+        action={updateProduct}
+        categories={categories}
+        initialData={{
+          id: product.id,
+          title: product.title,
+          slug: product.slug,
+          description: product.description,
+          price: product.price,
+          oldPrice: product.oldPrice,
+          stock: product.stock,
+          image: product.image,
+          categoryId: product.categoryId,
+        }}
+      />
 
       <form
         action={updateProduct}

@@ -26,6 +26,16 @@ export default async function EditCategoryPage({ params }: Props) {
         title="Kategori Düzenle"
         description="Mevcut kategori bilgilerini güncelleyin."
       />
+      <CategoryForm
+        action={updateCategory}
+        initialData={{
+          id: category.id,
+          name: category.name,
+          slug: category.slug,
+          description: category.description || "",
+          image: category.image || "",
+        }}
+      />
 
       <form
         action={updateCategory}

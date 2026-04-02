@@ -9,6 +9,7 @@ export default function NewBlogPostPage() {
         title="Yeni Blog Yazısı"
         description="Yeni bir blog yazısı ekleyin."
       />
+      import BlogForm from "@/components/admin/forms/BlogForm";
 
       <form action={createBlogPost} className="rounded-3xl bg-white p-8 shadow-sm max-w-4xl">
         <div className="grid gap-6">

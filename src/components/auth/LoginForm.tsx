@@ -2,17 +2,22 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function LoginForm() {
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(formData: FormData) {
     setLoading(true);
-    setError("");
 
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+
+    if (!email || !password) {
+      toast.error("Lütfen tüm alanları doldurun.");
+      setLoading(false);
+      return;
+    }
 
     const result = await signIn("credentials", {
       email,
@@ -23,10 +28,11 @@ export default function LoginForm() {
     setLoading(false);
 
     if (result?.error) {
-      setError("E-posta veya şifre hatalı.");
+      toast.error("E-posta veya şifre hatalı.");
       return;
     }
 
+    toast.success("Giriş başarılı.");
     window.location.href = "/";
   }
 
@@ -44,8 +50,6 @@ export default function LoginForm() {
         placeholder="Şifre"
         className="w-full rounded-2xl border border-gray-300 px-4 py-3 outline-none focus:border-[#2f6b3b]"
       />
-
-      {error && <p className="text-sm text-red-600">{error}</p>}
 
       <button
         type="submit"

@@ -26,6 +26,17 @@ export default async function EditBlogPage({ params }: Props) {
         title="Blog Yazısı Düzenle"
         description="Mevcut blog içeriğini güncelleyin."
       />
+      <BlogForm
+        action={updateBlogPost}
+        initialData={{
+          id: post.id,
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.excerpt,
+          content: post.content,
+          image: post.image || "",
+        }}
+      />
 
       <form
         action={updateBlogPost}

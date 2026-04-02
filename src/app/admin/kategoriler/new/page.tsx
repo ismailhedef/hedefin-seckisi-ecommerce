@@ -9,6 +9,7 @@ export default function NewCategoryPage() {
         title="Yeni Kategori"
         description="Yeni ürün kategorisi ekleyin."
       />
+      <CategoryForm action={createCategory} />
 
       <form action={createCategory} className="rounded-3xl bg-white p-8 shadow-sm max-w-3xl">
         <div className="grid gap-6">

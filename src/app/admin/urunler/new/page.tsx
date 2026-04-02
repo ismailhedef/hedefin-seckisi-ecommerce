@@ -16,6 +16,7 @@ export default async function NewProductPage() {
         title="Yeni Ürün"
         description="Yeni ürün ekleyin."
       />
+      <ProductForm action={createProduct} categories={categories} />
 
       <form action={createProduct} className="rounded-3xl bg-white p-8 shadow-sm max-w-4xl">
         <div className="grid gap-6">
